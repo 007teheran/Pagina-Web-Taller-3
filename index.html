@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espacios en riesgo de Desaparición</title>
+    <meta name="description" content="Sitio web del proyecto investigativo sobre patrimonio cultural.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #111;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        nav h1 {
+            color: #fff;
+            font-size: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f39c12;
+        }
+
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://images.unsplash.com/photo-1526403226981-3b93e3c6d9b4') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        header p {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 10%;
+        }
+
+        section h2 {
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-left: 5px solid #f39c12;
+            padding-left: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media(max-width: 768px){
+            nav ul {
+                display: none;
+            }
+
+            header h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>Taller 3 - Patrimonio y Contexto</h1>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#contexto">Contexto</a></li>
+            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#evidencias">Evidencias</a></li>
+            <li><a href="#conclusiones">Conclusiones</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <div>
+            <h2>Espacios en Riesgo de Desaparición</h2>
+            <h3>Lugares que guardan historias</h3>
+        </div>
+    </header>
+
+    <section id="contexto">
+        <h2>Contexto</h2>
+        <div class="card">
+            <h3>Informe 1 – Contexto Histórico</h3>
+            <li><a href="Documento1.HTML">Documento</a></li>
+            <p>Primer informe de Investigación</p>
+        </div>
+    </section>
+
+    <section id="herramientas">
+        <h2>Herramientas de Investigación</h2>
+        <div class="card">
+            <h3>Mapeo Sensorial</h3>
+            <li><a href="MapeoSensorial.HTML">Ver Mapeo Sensorial</a></li>
+            <p>Descripción del propósito y aplicación del mapeo sensorial.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cartografía</h3>
+            <li><a href="Cartografia.HTML">Ver Cartografía</a></li>
+            <p>Explicación del análisis territorial realizado.</p>
+        </div>
+
+        <div class="card">
+            <h3>Línea de Tiempo</h3>
+            <li><a href="LineaDelTiempo.HTML">Ver Línea de Tiempo</a></li>
+            <p>Evolución histórica del patrimonio investigado.</p>
+        </div>
+    </section>
+
+    <section id="evidencias">
+        <h2>Evidencias de Campo</h2>
+
+        <div class="gallery">
+            <img src="Parque.jpg" alt="Fotografía del patrimonio">
+            <img src="parque2.jpg" alt="Registro de investigación">
+            <img src="iglesia1.jpg" alt="Entrevista realizada">
+        </div>
+        <div class="card">
+            <li><a href="EvidenciasDeCampo.HTML">Ver más evidencias</a></li>
+            <p>Aqui podras ver mas evidencias visuales de nuestro trabajo investigativo</p>
+        
+        </div>
+
+    </section>
+
+    <section id="conclusiones"> 
+        <h2>Conclusiones</h2>
+        <div class="card">
+            <p>¿¿¿QUE CONCLUIMOS???</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Proyecto Taller 3 - Patrimonio y Contexto - 2026 | Derechos reservados</p>
+    </footer>
+
+</body>
+</html>
