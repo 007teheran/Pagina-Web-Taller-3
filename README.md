@@ -1,25 +1,23 @@
-# Pagina-Web-Taller-3
+Proyecto Web Universitario
 
-Breve descripción del proyecto. Explica en 2 o 3 líneas qué hace la página web y cuál es el objetivo del trabajo universitario.
+Página web desarrollada en HTML como parte de un trabajo universitario.
 
----
+📄 Páginas del proyecto
+index.html → Página principal
+Cartografia.html
+Documento1.html
+EvidenciasDeCampo.html
+LineaDelTiempo.html
 
-## 📌 Características
+🚀 Ver proyecto
 
-* Sitio web desarrollado en HTML.
-* Uso de múltiples páginas `.html`.
-* Navegación entre secciones.
-* Diseño visual para presentar información de forma clara.
-* Compatible con navegadores modernos.
+Al publicar el repositorio con GitHub Pages, la página principal será automáticamente index.html.
 
+Ejemplo:
+https://tu-usuario.github.io/tu-repositorio/
 
-## 🖼️ Páginas incluidas
+🛠️ Tecnologías
 
-| Archivo                  | Descripción                                                                 |
-| ------------------------ | --------------------------------------------------------------------------- |
-| `index.html`             | Página principal del sitio                                                  |
-| `Cartografia.html`       | Sección dedicada a la cartografía y representación visual de la información |
-| `Documento1.html`        | Documento o contenido principal del trabajo                                 |
-| `EvidenciasDeCampo.html` | Página con evidencias, fotografías o información obtenida en campo          |
-| `LineaDelTiempo.html`    | Línea del tiempo con los eventos o etapas importantes del proyecto          |
-
+HTML5
+CSS3
+JavaScript
