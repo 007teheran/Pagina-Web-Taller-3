@@ -24,12 +24,29 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: #111;
+            background: rgba(0, 0, 0, 0.30);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        nav.solid {
+            background: #111;
+            border-bottom-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        nav.solid h1 {
+            color: #f39c12;
+        }
+
+        nav.solid ul li a {
+            color: #fff;
         }
 
         nav h1 {
@@ -56,13 +73,13 @@
         header {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                        url('https://images.unsplash.com/photo-1526403226981-3b93e3c6d9b4') center/cover no-repeat;
+                        url('PortadaInicio.jpg') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             color: white;
-            padding: 20px;
+            padding: 100px 20px 20px;
         }
 
         header h2 {
@@ -109,6 +126,23 @@
             width: 100%;
             border-radius: 10px;
         }
+        button
+        {
+            display: block;
+            width: 100%;
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 5px;
+            background: #333;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;     
+        }
+        button:active
+        {
+            transform: scale(0.95);
+        }
 
         footer {
             background: #111;
@@ -150,47 +184,41 @@
     </header>
 
     <section id="contexto">
-        <h2>Contexto</h2>
+        <center><h2>Contexto</h2></center>
         <div class="card">
-            <h3>Informe 1 – Contexto Histórico</h3>
-            <li><a href="Documento1.html">Documento</a></li>
-            <p>Primer informe de Investigación</p>
+            <button onclick="window.location.href='Documento1.html'">Informe 1 – Contexto Histórico</button>
         </div>
     </section>
 
     <section id="herramientas">
-        <h2>Herramientas de Investigación</h2>
+        <center><h2>Herramientas de Investigación</h2></center>
         <div class="card">
             <h3>Mapeo Sensorial</h3>
-            <li><a href="MapeoSensorial.html">Ver Mapeo Sensorial</a></li>
-            <p>Descripción del propósito y aplicación del mapeo sensorial.</p>
+            <button onclick="window.location.href='MapeoSensorial.html'">Ver Mapeo Sensorial</button>
         </div>
 
         <div class="card">
             <h3>Cartografía</h3>
-            <li><a href="Cartografia.html">Ver Cartografía</a></li>
-            <p>Explicación del análisis territorial realizado.</p>
+            <button onclick="window.location.href='Cartografia.html'">Explicación del análisis territorial realizado.</button>
         </div>
 
         <div class="card">
             <h3>Línea de Tiempo</h3>
-            <li><a href="LineaDelTiempo.html">Ver Línea de Tiempo</a></li>
-            <p>Evolución histórica del patrimonio investigado.</p>
+            <button onclick="window.location.href='LineaDelTiempo.html'">Evolución histórica del patrimonio investigado.</button>
         </div>
     </section>
 
     <section id="evidencias">
-        <h2>Evidencias de Campo</h2>
+        <center><h2>Evidencias de Campo</h2></center>
 
         <div class="gallery">
             <img src="Parque.jpg" alt="Fotografía del patrimonio">
             <img src="parque2.jpg" alt="Registro de investigación">
             <img src="iglesia1.jpg" alt="Entrevista realizada">
         </div>
+
         <div class="card">
-            <li><a href="EvidenciasDeCampo.html">Ver más evidencias</a></li>
-            <p>Aqui podras ver mas evidencias visuales de nuestro trabajo investigativo</p>
-        
+            <button onclick="window.location.href='EvidenciasDeCampo.html'">Aqui podras ver mas evidencias visuales de nuestro trabajo investigativo</button>        
         </div>
 
     </section>
@@ -201,11 +229,34 @@
             <p>¿¿¿QUE CONCLUIMOS???</p>
         </div>
     </section>
-
+    
     <!-- FOOTER -->
     <footer>
         <p>Proyecto Taller 3 - Patrimonio y Contexto - 2026 | Derechos reservados</p>
     </footer>
 
+    <script>
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) {
+                    nav.classList.add('solid');
+                } else {
+                    nav.classList.remove('solid');
+                }
+            },
+            {
+                root: null,
+                threshold: 0,
+                rootMargin: '-1px 0px 0px 0px'
+            }
+        );
+
+        if (header) {
+            observer.observe(header);
+        }
+    </script>
 </body>
 </html>
