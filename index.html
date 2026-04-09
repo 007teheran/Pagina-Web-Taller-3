@@ -32,7 +32,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         nav.solid {
@@ -63,7 +63,7 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
         nav ul li a:hover {
@@ -97,10 +97,22 @@
         }
 
         section h2 {
-            margin-bottom: 30px;
             font-size: 2rem;
-            border-left: 5px solid #f39c12;
-            padding-left: 15px;
+            text-align: center;
+            margin-bottom: 30px; /* Espacio hacia lo que sigue después de la línea */
+            color: #333;
+            border-left: none; /* Asegúrate de que no haya bordes laterales */
+            padding-left: 0;
+        }
+
+        section h2::after {
+            content: ''; /* Obligatorio para que la línea exista */
+            display: block;
+            width: 80px; /* Largo de la franja */
+            height: 5px; /* Grosor de la franja */
+            background: #f39c12; /* Tu naranja */
+            margin: 10px auto 0; /* 10px de separación con el texto y centrado */
+            border-radius: 2px;
         }
 
         .card {
@@ -109,7 +121,7 @@
             margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            transition: 0.4s;
         }
 
         .card:hover {
@@ -119,7 +131,8 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            gap: 25px;
+            padding: 20px 0;
         }
 
         .gallery img {
@@ -161,6 +174,196 @@
             }
         }
 
+        .btn-5 {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #e87305; 
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            padding: 0;
+            overflow: hidden; 
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+            min-height: 80px; 
+        }
+
+        .btn-5:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            background-color: transparent !important; 
+        }
+
+        .imagen-header {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            z-index: 1; 
+        }
+
+        .imagen-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .info-footer {
+            padding: 20px;
+            width: 100%;
+            background: white;
+        }
+
+        .contenido-interno {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            width: 100%;
+            padding: 20px;
+            background-color: #e87305; 
+            color: white;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .btn-5:hover .contenido-interno {
+            background-color: transparent !important;
+            color: #e87305; 
+        }
+
+        .textos h3 {
+            font-size: 1rem;
+            color: #222;
+            margin-bottom: 2px;
+            transition: color 400ms ease;
+        }
+
+        .textos p {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0;
+        }
+
+        .btn-5:hover .textos h3 {
+            color: #f39c12;
+        }
+
+        .btn-5:hover .textos p {
+            color: #666; 
+        }
+
+        .btn-5:before,
+        .btn-5:after {
+            content: '';
+            position: absolute;
+            height: 4px;
+            width: 0;
+            background: #e87305;
+            transition: 400ms ease all;
+            z-index: 10; 
+        }
+
+        .btn-5:before {
+            top: 0;
+            right: 0;
+        }
+
+        .btn-5:after {
+            bottom: 0;
+            left: 0;
+        }
+
+        .btn-5:hover:before,
+        .btn-5:hover:after {
+            width: 100%;
+            transition: 800ms ease all;
+        }
+
+        .texto-boton {
+            color: #333 !important; 
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            z-index: 5; 
+            position: relative;
+            padding: 10px;
+        }
+
+        .btn-5:hover .texto-boton {
+            color: #f39c12 !important;
+        }
+
+        #introduccion { 
+            margin-top: 90px;
+            padding: 60px 10%; 
+        }
+
+        .contenedor-lectura {
+            max-width: 800px; 
+            margin: 0 auto; 
+            text-align: center;
+        }
+
+        .contenedor-lectura p {
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.8; 
+            margin-top: 20px;
+        }
+
+        .contenedor-lectura h2 {
+            border-left: none; 
+            padding-left: 0;
+            position: relative;
+            display: inline-block;
+        }
+
+        .contenedor-lectura h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #f39c12;
+            margin: 10px auto 0;
+        }
+
+        .card-image .btn-interno-naranja {
+            background-color: transparent;
+            border-radius: 5px;
+            transition: all 0.4s ease; 
+        }
+
+        .card-image .btn-5:hover .btn-interno-naranja {
+            background-color: transparent !important;
+            color: white; 
+        }
+
+        #herramientas .btn-5 {
+            background-color: white;
+        }
+
+        #herramientas .contenido-interno {
+            background-color: transparent; 
+            color: #333; 
+        }
+
+        #herramientas .btn-5:hover {
+            background-color: #e87305 !important; 
+        }
+
+        #herramientas .btn-5:hover .contenido-interno {
+            color: white; 
+        }
+
+        #herramientas .btn-5:hover .textos h3 {
+            color: rgb(225, 115, 5) !important;
+        }
+
+        #contexto .btn-5, #evidencias .btn-5 {
+            background-color: #e87305;
+        }
+
     </style>
 </head>
 <body>
@@ -183,30 +386,81 @@
         </div>
     </header>
 
+    <section id="introduccion">
+        <div class="contenedor-lectura">
+            <center><h2>Sobre el Proyecto</h2></center>
+            <p>
+               <em> <strong>Hay lugares que no desaparecen de un día para otro, sino que se van borrando poco a poco.</strong></em> <p></p>
+                En esta página web, van a ser expuestos los resultados de las investigaciones hechas al pequeño pueblo. Exposición de espacios, territorios y tradiciones, 
+                que más allá de su apariencia física, guardan historias, encuentros y significados que han construido la identidad del municipio a lo largo del tiempo, 
+                y sin embargo, la gente, con el paso de los años, han dejado desvanecer día tras día.<p></p> <strong>Bienvenido a esta exploración de lo qué es y, alguna vez fue, Santafé.</strong>
+
+            </p>
+        </div>
+    </section>
+
     <section id="contexto">
         <center><h2>Contexto</h2></center>
-        <div class="card">
-            <button onclick="window.location.href='Documento1.html'">Informe 1 – Contexto Histórico</button>
-        </div>
+
+        <button onclick="window.location.href='Documento1.html'" class="btn-5">
+            
+        <div style="margin-top: 10px; width: 100%;"></div>
+            <div class="contenido-interno">
+                Informe 1 – Contexto Histórico
+            </div>
+        </button>
     </section>
 
-    <section id="herramientas">
-        <center><h2>Herramientas de Investigación</h2></center>
-        <div class="card">
-            <h3>Mapeo Sensorial</h3>
-            <button onclick="window.location.href='MapeoSensorial.html'">Ver Mapeo Sensorial</button>
-        </div>
+<section id="herramientas">
+    <center><h2>Herramientas de Investigación</h2></center>
 
-        <div class="card">
-            <h3>Cartografía</h3>
-            <button onclick="window.location.href='Cartografia.html'">Explicación del análisis territorial realizado.</button>
-        </div>
+    <div class="gallery">
+        
+        <button onclick="window.location.href='MapeoSensorial.html'" class="btn-5 card-image">
+            <div class="imagen-header">
+                <img src="iglesia1.jpg" alt="Mapeo Sensorial">
+            </div>
+            <div class="info-footer">
+                <div class="contenido-interno">
+                    
+                    <div class="textos">
+                        <h3>Mapeo Sensorial</h3>
+                        <p>Análisis de percepción del espacio.</p>
+                    </div>
+                </div>
+            </div>
+        </button>
 
-        <div class="card">
-            <h3>Línea de Tiempo</h3>
-            <button onclick="window.location.href='LineaDelTiempo.html'">Evolución histórica del patrimonio investigado.</button>
-        </div>
-    </section>
+        <button onclick="window.location.href='Cartografia.html'" class="btn-5 card-image">
+            <div class="imagen-header">
+                <img src="calle2.jpg" alt="Cartografía">
+            </div>
+            <div class="info-footer">
+                <div class="contenido-interno">
+                    <div class="textos">
+                        <h3>Cartografía</h3>
+                        <p>Mapeo territorial y técnico.</p>
+                    </div>
+                </div>
+            </div>
+        </button>
+
+        <button onclick="window.location.href='LineaDelTiempo.html'" class="btn-5 card-image">
+            <div class="imagen-header">
+                <img src="calle.jpg" alt="Línea de Tiempo">
+            </div>
+            <div class="info-footer">
+                <div class="contenido-interno">
+                    <div class="textos">
+                        <h3>Línea de Tiempo</h3>
+                        <p>Evolución histórica del lugar.</p>
+                    </div>
+                </div>
+            </div>
+        </button>
+
+    </div>
+</section>
 
     <section id="evidencias">
         <center><h2>Evidencias de Campo</h2></center>
@@ -217,17 +471,26 @@
             <img src="iglesia1.jpg" alt="Entrevista realizada">
         </div>
 
-        <div class="card">
-            <button onclick="window.location.href='EvidenciasDeCampo.html'">Aqui podras ver mas evidencias visuales de nuestro trabajo investigativo</button>        
-        </div>
+        <button onclick="window.location.href='EvidenciasDeCampo.html'" class="btn-5" style="margin-top: 20px; min-height: 80px; display: flex; align-items: center; justify-content: center;">
+       <div class="contenido-interno">
+        Aquí podrás ver más evidencias visuales de nuestro trabajo investigativo
+    </div>
+    </button>
 
     </section>
 
     <section id="conclusiones"> 
-        <h2>Conclusiones</h2>
-        <div class="card">
-            <p>¿¿¿QUE CONCLUIMOS???</p>
-        </div>
+        <div class="contenedor-lectura">
+            <h2>Conclusiones</h2>
+            
+                <p>Santa Fe de Antioquia no está perdiendo solo espacios. Está perdiendo historias.
+                Detrás de cada lugar abandonado, transformado o en ruinas, hay recuerdos, encuentros, formas de vivir y de habitar el territorio que poco a poco se desvanecen. Sitios que antes estaban llenos de vida hoy existen en el olvido, no porque hayan dejado de ser importantes, sino porque dejaron de ser vistos.
+                </p>
+                <p>Este proyecto ha permitido entender que el valor de estos espacios no está únicamente en su arquitectura, sino en lo que representan para las personas: en la memoria, en las experiencias y en la identidad que construyen. Cuando un lugar desaparece, no solo cambia el paisaje, también se rompe una parte del vínculo entre la comunidad y su historia.
+                Por eso, preservar no es solo restaurar estructuras. Es escuchar, reconocer y darle lugar a aquello que aún vive en el recuerdo de la gente. Es evitar que el desarrollo borre lo que nos define.
+                </p>
+                <p><i><strong>Santa Fe de Antioquia sigue siendo un territorio lleno de memoria. La pregunta es si vamos a dejar que desaparezca… o si vamos a decidir mirarla antes de que sea tarde.</strong></i></p>
+        </div>    
     </section>
     
     <!-- FOOTER -->
