@@ -10,139 +10,181 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: #f4f4f4;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #333;
+            color: #eee;
             line-height: 1.6;
+            padding-top: 80px;
+            background-image: url('iglesiaLineaDeTiempoFondo.webp'); 
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #1a1a1a; 
+        }
+
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75); 
+            z-index: -1;
         }
 
         nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background: #111;
-            padding: 12px 24px;
+            width: 100%;
+            background: #03141F;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        nav h1 {
-            color: #fff;
-            font-size: 1.1rem;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 16px;
-        }
-
+        nav h1 { font-size: 1.1rem; color: #fff; }
+        nav ul { list-style: none; }
         nav ul li a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: background 0.25s ease;
+            padding: 8px 15px;
+            background: #03141F;
+            border-radius: 5px;
+            transition: 0.3s;
         }
+        nav ul li a:hover { background: #e87305; }
 
-        nav ul li a:hover {
-            background: #f39c12;
-            color: #111;
-        }
-
-        .content {
-            padding: 100px 10% 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .image-section {
-            background: #fff;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .image-section h2 {
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-            color: #111;
-            border-left: 5px solid #f39c12;
-            padding-left: 12px;
-        }
-
-        .image-two {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .image-item {
-            width: 100%;
-            max-width: 1080px;
+        .header-title {
             text-align: center;
+            margin: 40px 0;
         }
 
-        .image-item img {
-            width: 100%;
-            max-width: 1080px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-            transition: transform 0.35s ease, filter 0.35s ease;
+        .header-title h1 { font-size: 2.5rem; }
+        .header-title p { color: #5fca00; text-transform: uppercase; letter-spacing: 2px; }
+
+        .timeline {
+            position: relative;
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 40px 0;
         }
 
-        .image-item img:hover {
-            transform: scale(1.02);
-            filter: brightness(1.04);
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #555;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
-        .image-item p {
-            margin-top: 10px;
-            font-size: 1rem;
-            color: #555;
+        .checkpoint {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            margin-bottom: 20px;
         }
 
-        @media (max-width: 980px) {
-            .image-item {
-                flex: 1 1 100%;
-            }
-
-            .image-item img {
-                max-height: 420px;
-            }
+        .checkpoint-content h2 {
+            color: #5fca00;
         }
 
-        @media (max-width: 600px) {
-            .content {
-                padding: 100px 5% 40px;
-            }
+        .checkpoint:nth-child(odd) { left: 0; }
+        .checkpoint:nth-child(even) { left: 50%; }
 
-            .image-item img {
-                max-height: 300px;
-            }
-
-            nav ul {
-                display: none;
-            }
+        .checkpoint-content {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid #444;
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
         }
+
+        .checkpoint:nth-child(even) .checkpoint-content { flex-direction: row-reverse; }
+
+        .checkpoint-content:hover { border-color: #036c17; }
+
+        .checkpoint-content img {
+            width: 220px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+
+        .checkpoint-content img:hover {
+            transform: scale(1.05);
+        }
+
+        .text-box { flex-grow: 1; }
+        .checkpoint:nth-child(odd) .text-box { text-align: right; }
+
+        .checkpoint::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: #ae4204;
+            border: 3px solid #333;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            box-shadow: 0 0 10px #ae4204;
+        }
+
+        .checkpoint:nth-child(odd)::after { right: -8px; }
+        .checkpoint:nth-child(even)::after { left: -8px; }
 
         footer {
-            margin-top: 40px;
             text-align: center;
-            color: #666;
+            padding: 50px 20px;
+            color: #ffffff;
             font-size: 0.9rem;
-            padding-bottom: 20px;
         }
+
+        @media (max-width: 768px) {
+            .timeline::after { left: 20px; }
+            .checkpoint { width: 100%; padding-left: 50px; padding-right: 20px; left: 0 !important;margin-bottom: 40px; display: flex; flex-direction: column; }
+            .checkpoint::after { left: 11px !important; top: px;}
+            .checkpoint-content { flex-direction: column !important; align-items: flex-start !important; }
+            .checkpoint-content img { width: 100%; height: auto; }
+            .date { position: relative !important; top: 0; left: 0 !important; right: 0 !important;
+            transform: none; margin-bottom: 10px; display: block; text-align: left;}
+        }
+
+        .date {
+            position: absolute;
+            top: 50%; 
+            transform: translateY(-50%); 
+            font-weight: bold;
+            color: #e87305;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            z-index: 5;
+
+        }
+
+        .checkpoint:nth-child(odd) .date {
+            left: calc(100% + 15px); 
+            text-align: left;
+        }
+
+        .checkpoint:nth-child(even) .date {
+            right: calc(100% + 15px); 
+            text-align: right;
+        }        
     </style>
 </head>
 <body>
@@ -154,16 +196,101 @@
         </ul>
     </nav>
 
-    <main class="content">
-        <section class="image-section" id="fotografias">
+    <div class="header-title">
+        <h1>Línea de Tiempo</h1>
+        <p>trayectoria lugares importantes del patrimonio</p>
+    </div>
 
-            <div class="image-two">
-                <div class="image-item">
-                    <img src="LíneaDelTiempo1.png" alt="Línea del Tiempo 1">
-                    <img src="LineaDelTiempo2.png" alt="Línea del Tiempo 2">
+    <div class="timeline">
+        <div class="checkpoint">
+            <span class="date">~1750</span> 
+            <div class="checkpoint-content">
+                <img src="casaVerde.jpg" alt="Casa Verde">
+                <div class="text-box">
+                    <h2>Construcción casa verde</h2>
+                    <p>Antiguo hogar de la descendencia de Juan del Corral y centro de comercio (S. XVIII - XX). Sede de la banca que financió el Puente de Occidente y uno de los primeros centros comerciales de la región. Hoy alberga el Almacén Suyo (1948), aunque el resto de la estructura está en decadencia.</p>
                 </div>
-        </section>
-    </main>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">1799 - 1837</span> 
+            <div class="checkpoint-content">
+                <img src="iglesiaPrincipal.jpg" alt="Iglesia Principal">
+                <div class="text-box">
+                    <h2>Construcción Catedral basílica de la inmaculada concepción</h2>
+                    <p>Principal templo de la arquidiócesis de Santa Fe de Antioquia, de estilo neoclásico con detalles de barroco popular. Declarado Monumento Nacional de Colombia por la Ley 163 del 30 de diciembre de 1959</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">1805</span> 
+            <div class="checkpoint-content">
+                <img src="CapillaDeObregon.jpg" alt="Capilla Obregon">
+                <div class="text-box">
+                    <h2>Capilla de Obregón</h2>
+                    <p>Situada en la zona rural de Obregón, a 4 Km del área urbana en lo que hoy es una urbanización, lo que la convierte en una capilla privada. La Capilla fue construida en 1805, con un estilo neoclásico español.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">siglo XIX-XX</span> 
+            <div class="checkpoint-content">
+                <img src="cementerio1.jpg" alt="Cementerio">
+                <div class="text-box">
+                    <h2>Cierre cementerio Iglesia de la chinca</h2>
+                    <p>Sirvió como cárcel de clérigos y cementerio fue clausurado por leyes de higiene que prohibía entierros urbanos, para asi evitar la propagación de enfermedades en la zona.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">70's - 80's</span> 
+            <div class="checkpoint-content">
+                <img src="heladerias.jpg" alt="Heladerias">
+                <div class="text-box">
+                    <h2>Hito de las heladerías</h2>
+                    <p>La Ceiba y Canta Claro se consolidan como espacios de encuentro para los enamorados y disfrute de buena música para los locales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">2015</span> 
+            <div class="checkpoint-content">
+                <img src="apogeoDelOro.jpg" alt="Apogeo oro">
+                <div class="text-box">
+                    <h2>Apogeo del Oro</h2>
+                    <p>Descubrieron una zona cercana al pueblo donde se encontraba una mina de oro. Esto provocó que llegara gente de todas partes del país en busca de oportunidades. Debido al aumento de la población, comenzaron a abrir más discotecas y negocios en el lugar.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">2017</span> 
+            <div class="checkpoint-content">
+                <img src="plazaCentral.webp" alt="Plaza">
+                <div class="text-box">
+                    <h2>Remodelacion plaza central</h2>
+                    <p>Se renovó las zonas peatonales y además, se restringió el tráfico vehicular en el atrio y alrededores para priorizar el tránsito peatonal y mejorar la experiencia turística. </p>
+                    <p>Los toldos de la plaza fueron reubicados a la plaza de mercado, afectando el comercio local. </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkpoint">
+            <span class="date">2022</span> 
+            <div class="checkpoint-content">
+                <img src="quemada.jpg" alt="Plaza">
+                <div class="text-box">
+                    <h2>Incendio de la ceiba y el monkey bar</h2>
+                    <p>Deja en ruinas a la Ceiba (en ese momento una tienda de Variedades) y al Monkey Bar, quedándo hasta el día de hoy en completo abandono.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>Proyecto Taller 3 - Patrimonio y Contexto | Santa Fe de Antioquia</p>
