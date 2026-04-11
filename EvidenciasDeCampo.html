@@ -189,8 +189,55 @@
             display: block;
         }
 
+        .camera-slider-container {
+            position: relative; 
+            width: 100%; 
+            max-width: 880px;
+            margin: 0 auto;
+            aspect-ratio: 16/9; 
+            overflow: hidden;
+        }
 
+        .camera-overlay-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2; 
+            pointer-events: none;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 25%; 
+            left: 10%;
+            width: 53%;
+            height: 60%;
+            z-index: 1; 
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255,255,255,0.7);
+            border: none;
+            width: 60px;  
+            height: 60px; 
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 3; 
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
         
+        .slider-btn:hover {
+            background-color: #f39c12; 
+            color: white; 
+        }
 
     </style>
  <body>
@@ -238,26 +285,23 @@
     <section id="videos">
         <h2>Videos</h2>
 
-        <div class="card">
-            <h3>Video 1</h3>
-            <video controls>
-                <source src="saluden.mov" type="video/mp4">
-            </video>
+        <div class="camera-slider-container">
+        <img src="FondoVideos.png" alt="Cámara Nikon Proyector" class="camera-overlay-image">
+        
+        <div class="video-background">
+            <iframe id="youtube-player" 
+                    width="100%" height="100%" 
+                    src="" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+            </iframe>
         </div>
 
-        <div class="card">
-            <h3>Video 2</h3>
-            <video controls>
-                <source src="plaza1.mov" type="video/mp4">
-            </video>
-            <video controls>
-                <source src="plaza2.mov" type="video/mp4">
-            </video>
-
-            <video controls>
-                <source src="plaza3.mov" type="video/mp4">  
-            </video>
-        </div>
+        <button class="slider-btn prev-btn" onclick="changeVideo(-1)">&#10094;</button>
+        <button class="slider-btn next-btn" onclick="changeVideo(1)">&#10095;</button>
+    </div>
     </section>
 
     <section id="entrevistas">
@@ -355,5 +399,37 @@
     </footer>
 
 </section>
+<script>
+            const videoIds = [
+            'EBof34tFoHM',
+            'tlL4j1Xkofc',
+            'JkQmrPXwSNU'
+        ];
+
+        let currentVideoIndex = 0;
+        const player = document.getElementById('youtube-player');
+
+        function initSlider() {
+            updatePlayer();
+        }
+
+        function changeVideo(direction) {
+            currentVideoIndex += direction;
+            if (currentVideoIndex < 0) {
+                currentVideoIndex = videoIds.length - 1; 
+            } else if (currentVideoIndex >= videoIds.length) {
+                currentVideoIndex = 0; 
+            }
+            updatePlayer();
+        }
+
+        function updatePlayer() {
+            const newId = videoIds[currentVideoIndex];
+            player.src = `https://www.youtube.com/embed/${newId}?enablejsapi=1`;
+        }
+
+        initSlider();
+</script>
+
 </body> 
 </html> 
